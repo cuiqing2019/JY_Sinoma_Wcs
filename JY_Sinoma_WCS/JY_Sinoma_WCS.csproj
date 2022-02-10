@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E963ED9-A629-4EE0-889C-0390CBADE4CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JY_Sinoma_WCS</RootNamespace>
+    <AssemblyName>JY_Sinoma_WCS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Communication, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="Invengo.Language, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Invengo.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="IRP1, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\IRP1.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="OpcRcw.Comn, Version=1.10.2.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\OpcRcw.Comn.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcRcw.Da, Version=3.0.3.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\OpcRcw.Da.dll</HintPath>
+    </Reference>
+    <Reference Include="RFIDInterface, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\RFIDInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase\ConnectPool.cs" />
+    <Compile Include="DataBase\DataBase.cs" />
+    <Compile Include="DataBase\LogFile.cs" />
+    <Compile Include="DataBase\MySqlHelper.cs" />
+    <Compile Include="DataProces\AGVTaskAssign.cs" />
+    <Compile Include="DataProces\OutAssign.cs" />
+    <Compile Include="Device\AGV.cs" />
+    <Compile Include="Device\Conveyor.cs" />
+    <Compile Include="Device\ConveyorLoad.cs" />
+    <Compile Include="Device\ConveyorNoLoad.cs" />
+    <Compile Include="Device\ConveyorWeightLoad.cs" />
+    <Compile Include="Device\DeviceStatusDic.cs" />
+    <Compile Include="Device\ElectricsStationInConveyor.cs" />
+    <Compile Include="Device\ElectricsConveyorAll.cs" />
+    <Compile Include="Device\ElectricsConveyorCmd.cs" />
+    <Compile Include="Device\FirstFloorInConveyorCmd .cs" />
+    <Compile Include="Device\FirstFloorInConveyorScannerCmd.cs" />
+    <Compile Include="Device\ManagementClass.cs" />
+    <Compile Include="Device\OutConveyorCmd.cs" />
+    <Compile Include="Device\diepanCount.cs" />
+    <Compile Include="Device\PumpingLoad.cs" />
+    <Compile Include="Device\ReadBoxCode.cs" />
+    <Compile Include="Device\RGV.cs" />
+    <Compile Include="Device\SecondFloorInConveyorCmd.cs" />
+    <Compile Include="Device\Stacker.cs" />
+    <Compile Include="Device\SystemStatus.cs" />
+    <Compile Include="Device\Tray.cs" />
+    <Compile Include="DoubleBufferListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCargoCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCargoCount.Designer.cs">
+      <DependentUpon>FormCargoCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRebackLevel1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRebackLevel1.Designer.cs">
+      <DependentUpon>FormRebackLevel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormChangeGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChangeGoods.Designer.cs">
+      <DependentUpon>FormChangeGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormChangeHazardArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChangeHazardArea.Designer.cs">
+      <DependentUpon>FormChangeHazardArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormConveyorCmd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConveyorCmd.designer.cs">
+      <DependentUpon>FormConveyorCmd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormConveyorLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConveyorLoad.designer.cs">
+      <DependentUpon>FormConveyorLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormConveyorNoLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConveyorNoLoad.designer.cs">
+      <DependentUpon>FormConveyorNoLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDeviceError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDeviceError.designer.cs">
+      <DependentUpon>FormDeviceError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDeviceStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDeviceStatus.designer.cs">
+      <DependentUpon>FormDeviceStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDTask.designer.cs">
+      <DependentUpon>FormDTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormElectricsConveyor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormElectricsConveyor.designer.cs">
+      <DependentUpon>FormElectricsConveyor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormElectricsConveyorAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormElectricsConveyorAll.designer.cs">
+      <DependentUpon>FormElectricsConveyorAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormElectricsConveyorCmd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormElectricsConveyorCmd.designer.cs">
+      <DependentUpon>FormElectricsConveyorCmd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEmptyPalletSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEmptyPalletSet.Designer.cs">
+      <DependentUpon>FormEmptyPalletSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormInternet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInternet.designer.cs">
+      <DependentUpon>FormInternet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLocationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLocationView.Designer.cs">
+      <DependentUpon>FormLocationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNewScannReadCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNewScannReadCode.Designer.cs">
+      <DependentUpon>FormNewScannReadCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPortSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPortSet.Designer.cs">
+      <DependentUpon>FormPortSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRFIDStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRFIDStatus.designer.cs">
+      <DependentUpon>FormRFIDStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormScannerHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormScannerHistory.designer.cs">
+      <DependentUpon>FormScannerHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSubTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSubTask.designer.cs">
+      <DependentUpon>FormSubTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSubTaskOperate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSubTaskOperate.designer.cs">
+      <DependentUpon>FormSubTaskOperate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSystemStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSystemStatus.designer.cs">
+      <DependentUpon>FormSystemStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTaskHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTaskHistory.designer.cs">
+      <DependentUpon>FormTaskHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTaskManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTaskManual.designer.cs">
+      <DependentUpon>FormTaskManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTaskType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTaskType.Designer.cs">
+      <DependentUpon>FormTaskType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTray.designer.cs">
+      <DependentUpon>FormTray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormUpdateCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormUpdateCount.Designer.cs">
+      <DependentUpon>FormUpdateCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormUpdate_name.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormUpdate_name.Designer.cs">
+      <DependentUpon>FormUpdate_name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormWorkModeLevel2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormWorkModeLevel2.Designer.cs">
+      <DependentUpon>FormWorkModeLevel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EC_Task_issued.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EC_Task_issued.designer.cs">
+      <DependentUpon>Form_EC_Task_issued.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAgv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAgv.designer.cs">
+      <DependentUpon>FrmAgv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmChangeGoodsKind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChangeGoodsKind.designer.cs">
+      <DependentUpon>FrmChangeGoodsKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmChangeHazardArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChangeHazardArea.designer.cs">
+      <DependentUpon>FrmChangeHazardArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmChangeLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChangeLocation.designer.cs">
+      <DependentUpon>FrmChangeLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLocationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLocationEdit.designer.cs">
+      <DependentUpon>FrmLocationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmStacker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmStacker.designer.cs">
+      <DependentUpon>FrmStacker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmWLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmWLocation.designer.cs">
+      <DependentUpon>FrmWLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JustNotInto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\JustNotInto.designer.cs">
+      <DependentUpon>JustNotInto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDlog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDlog.Designer.cs">
+      <DependentUpon>FrmDlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jiami\AES.cs" />
+    <Compile Include="jiami\SaoMiaoYingJian.cs" />
+    <Compile Include="PLC\OPCServer.cs" />
+    <Compile Include="PLC\OPCServerConnection.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RFID\MyReader.cs" />
+    <Compile Include="speech\Speech.cs" />
+    <EmbeddedResource Include="Forms\FormCargoCount.resx">
+      <DependentUpon>FormCargoCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRebackLevel1.resx">
+      <DependentUpon>FormRebackLevel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChangeGoods.resx">
+      <DependentUpon>FormChangeGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChangeHazardArea.resx">
+      <DependentUpon>FormChangeHazardArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConveyorCmd.resx">
+      <DependentUpon>FormConveyorCmd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConveyorLoad.resx">
+      <DependentUpon>FormConveyorLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConveyorNoLoad.resx">
+      <DependentUpon>FormConveyorNoLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDeviceError.resx">
+      <DependentUpon>FormDeviceError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDeviceStatus.resx">
+      <DependentUpon>FormDeviceStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDTask.resx">
+      <DependentUpon>FormDTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormElectricsConveyor.resx">
+      <DependentUpon>FormElectricsConveyor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormElectricsConveyorAll.resx">
+      <DependentUpon>FormElectricsConveyorAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormElectricsConveyorCmd.resx">
+      <DependentUpon>FormElectricsConveyorCmd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEmptyPalletSet.resx">
+      <DependentUpon>FormEmptyPalletSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormInternet.resx">
+      <DependentUpon>FormInternet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLocationView.resx">
+      <DependentUpon>FormLocationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewScannReadCode.resx">
+      <DependentUpon>FormNewScannReadCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPortSet.resx">
+      <DependentUpon>FormPortSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRFIDStatus.resx">
+      <DependentUpon>FormRFIDStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormScannerHistory.resx">
+      <DependentUpon>FormScannerHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSubTask.resx">
+      <DependentUpon>FormSubTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSubTaskOperate.resx">
+      <DependentUpon>FormSubTaskOperate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSystemStatus.resx">
+      <DependentUpon>FormSystemStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTaskHistory.resx">
+      <DependentUpon>FormTaskHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTaskManual.resx">
+      <DependentUpon>FormTaskManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTaskType.resx">
+      <DependentUpon>FormTaskType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTray.resx">
+      <DependentUpon>FormTray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormUpdateCount.resx">
+      <DependentUpon>FormUpdateCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormUpdate_name.resx">
+      <DependentUpon>FormUpdate_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormWorkModeLevel2.resx">
+      <DependentUpon>FormWorkModeLevel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EC_Task_issued.resx">
+      <DependentUpon>Form_EC_Task_issued.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAgv.resx">
+      <DependentUpon>FrmAgv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChangeGoodsKind.resx">
+      <DependentUpon>FrmChangeGoodsKind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChangeHazardArea.resx">
+      <DependentUpon>FrmChangeHazardArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChangeLocation.resx">
+      <DependentUpon>FrmChangeLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLocationEdit.resx">
+      <DependentUpon>FrmLocationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmStacker.resx">
+      <DependentUpon>FrmStacker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmWLocation.resx">
+      <DependentUpon>FrmWLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JustNotInto.resx">
+      <DependentUpon>JustNotInto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDlog.resx">
+      <DependentUpon>FrmDlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\货架1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RGV辊道.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\货架2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3373.png_300.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AccWizObjects">
+      <Guid>{5B87B6F0-17C8-11D0-AD41-00A0C90DC8D9}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ACTIVEXLib">
+      <Guid>{D9CFF027-8E95-432E-B6C8-31752DAEAD71}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="LCC11">
+      <Guid>{EDCD5812-6A06-43C3-AFAC-46EF5D14E22C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.OutlookViewCtl">
+      <Guid>{0006F062-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MsoEuro">
+      <Guid>{76F6F3F5-9937-11D2-93BB-00105A994D2C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="XDocsDesigner">
+      <Guid>{FD34A362-115F-43CA-8D6F-BBD45FD6F828}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
