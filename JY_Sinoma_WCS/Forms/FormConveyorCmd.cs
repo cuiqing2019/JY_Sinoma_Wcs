@@ -760,7 +760,7 @@ namespace JY_Sinoma_WCS
         #region 取消入库
         private void btnDel_Click(object sender, EventArgs e)
         {
-            string rs;//取消入库
+            string rs;
             if (firstConveyorScannerCmd != null)
             {
                 DialogResult dialogResult = MessageBox.Show("确定要取消该入库口该托盘的入库任务？", "系统提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
