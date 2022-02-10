@@ -86,6 +86,7 @@ namespace JY_Sinoma_WCS
         {
             using (MySqlConnection conn = dbConn.GetConnectFromPool())
             {
+                //一一一一一
                 if (conn == null)
                     return;
 
